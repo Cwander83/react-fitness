@@ -8,6 +8,9 @@ module.exports = function (passport) {
 			res.json({
 				userId: req.user._id,
 				username: req.user.username,
+				screenName: req.user.screenName,
+				goals: req.user.goals,
+				phone: req.user.phone,
 				isAuthenticated: true
 			});
 			//you can also pass up any other fields you with to expose
@@ -23,22 +26,29 @@ module.exports = function (passport) {
 	});
 
 	router.post("/signup",function(req,res){
+		console.log(res);
 		const newUser = req.body;
 		User.register(newUser,newUser.password,(err,user)=>{
 			if (err){ return res.json(err.message); }
 			res.json({
 				userId: user._id,
 				username: user.username,
+				screenName: user.screenName,
+				goals: user.goals,
+				phone: user.phone,
 				isAuthenticated: true
 			});
 		});
 	});
 
 	router.post("/signin",passport.authenticate('local') ,function(req,res){
-		// console.log(req.user);
+		 console.log(`req.user from route singin ${req.user}`);
 		res.json({
 			userId: req.user._id,
 			username: req.user.username,
+			screenName: req.user.screenName,
+				goals: req.user.goals,
+				phone: req.user.phone,
 			isAuthenticated: true
 		});
 	});

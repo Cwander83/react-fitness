@@ -1,125 +1,196 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import axios from 'axios';
-
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import Home from "./components/Home";
+//import image from './images/gym-background.jpg';
+import GithubCorner from 'react-github-corner';
+import {DropdownItem, DropdownMenu, UncontrolledDropdown, DropdownToggle, Dropdown} from 'reactstrap';
 
 class App extends Component {
-  state = {
-    username: "",
-    password: "",
-    auth: {
-      userId:"",
-      username:"",
-      isAuthenticated:false
-    }
-  };
+  constructor(props) {
+    super(props);
 
-  componentWillMount(){
-    axios.get("/auth/isAuthenticated").then((result)=>{
-      const {userId, isAuthenticated,username} = result.data
-      this.setState({
-        auth:{
-          userId,
-          isAuthenticated,
-          username
-        }
-      });
-    });
-  }
-
-  handleChange = (event) => {
-    const {name, value} = event.target;    
-        // Set the state for the appropriate input field
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    //call a sign In function
-    const newUser = {
-      username: this.state.username,
-      password: this.state.password
+    this.toggle = this
+      .toggle
+      .bind(this);
+    this.state = {
+      dropdownOpen: false
     };
-    this.setState({
-      username: "",
-      password: ""
-    }); 
-    const {name} = event.target;
-    axios.post(name, newUser).then((data) => {
-      if (data.data.isAuthenticated){
-        const {userId, isAuthenticated,username} = data.data;
-        this.setState({
-          auth:{
-            userId,
-            isAuthenticated,
-            username
-          }
-        });
-      }
-    });
   }
 
-  handleLogout = (event) => {
-    event.preventDefault();
-    axios.get("/auth/logout").then((result)=>{
-      this.setState({
-        auth:{
-          userId: "",
-          username: "",
-          isAuthenticated: false
-        }
-      });
-    })
-  };
-
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
   render() {
-    const loggedIn = this.state.auth.isAuthenticated;
     return (
-      <Router>
-        <div>
-        <Route exact path = "/" render = {()=> {
-          if(loggedIn){
-            return <Redirect to = "/home" />
-          } else{
-            return <SignIn 
-              handleChange= {this.handleChange} 
-              handleSubmit = {this.handleSubmit}
-              email = {this.state.email}
-              password = {this.state.password}
-            />
-          } 
-        }}/>
-        <Route exact path = "/signup" render = {()=> {
-          if(loggedIn){
-            return <Redirect to = "/home" />
-          } else{
-            return <SignUp 
-              handleChange= {this.handleChange} 
-              handleSubmit = {this.handleSubmit}
-              email = {this.state.email}
-              password = {this.state.password}
-            />
-          }  
-        }}/>
-        <Route exact path = "/home" render = {()=> {
-          if(!loggedIn){
-            return <Redirect to = "/" />
-          } else {
-            return <Home handleLogout = {this.handleLogout} auth = { this.state.auth }/>
-          } 
-        }
-        }/>
+      <div className='wrapper'>
+        <GithubCorner href="https://github.com/username/repo"/>
+
+        <div className='box'>
+          <h1 className='mainH1'>4 week Revolution</h1>
+          <ul>
+            <li>About</li>
+            <li>Calendar</li>
+            <li>
+              <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle
+                  tag="span"
+                  onClick={this.toggle}
+                  data-toggle="dropdown"
+                  aria-expanded={this.state.dropdownOpen}>
+                  Workout Plan
+                </DropdownToggle>
+
+                <DropdownMenu>
+
+                  <UncontrolledDropdown>
+                    <DropdownToggle nav>
+                      week 1
+                    </DropdownToggle>
+                    <DropdownMenu >
+                      <DropdownItem>
+                        day 1
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 2
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 3
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 4
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 5
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 6
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 7
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+
+                  <DropdownItem divider/>
+                  <UncontrolledDropdown>
+                    <DropdownToggle nav>
+                      week 2
+                    </DropdownToggle>
+                    <DropdownMenu >
+                      <DropdownItem>
+                        day 1
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 2
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 3
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 4
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 5
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 6
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 7
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <DropdownItem divider/>
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      week 3
+                    </DropdownToggle>
+                    <DropdownMenu >
+                      <DropdownItem>
+                        day 1
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 2
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 3
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 4
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 5
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 6
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 7
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <DropdownItem divider/>
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      week 4
+                    </DropdownToggle>
+                    <DropdownMenu >
+                      <DropdownItem>
+                        day 1
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 2
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 3
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 4
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 5
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 6
+                      </DropdownItem>
+                      <DropdownItem divider/>
+                      <DropdownItem>
+                        day 7
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </DropdownMenu>
+              </Dropdown>
+            </li>
+          </ul>
         </div>
-      </Router>
+      </div>
     );
   }
-}
+};
 
 export default App;
