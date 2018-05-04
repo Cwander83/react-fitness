@@ -1,10 +1,69 @@
 const db = require("../models");
 
 module.exports = {
-    updateUser: function(req, res) {
+    findAllUsers: function (req, res) {
         db.User
-          .findOneAndUpdate({ _id: req.params.id }, req.body)
-          .then(dbUser => res.json(dbUser))
-          .catch(err => res.status(422).json(err));
-      },
+            .find({})
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err));
+    },
+    findOneUsers: function (req, res) {
+        db.User
+            .findone({})
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err));
+    },
+
+    updateUser: function (req, res) {
+        
+        db.User
+            .findByIdAndUpdate({
+                _id: req.params.id
+            }, {$set: req.body})
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err));
+    },
+
+    addExercise: function (req, res) {
+        const id = req.params.id;
+        console.log(`id: ${id}`);
+        db.Exercise
+            .create(req.body)
+            .then(function (dbExercise) {
+                console.log(`req.body ${JSON.stringify(req.body)}`);
+                console.log(`dbExercise ${dbExercise}`);
+
+                return
+                db.User.findByIdAndUpdate({
+                    id
+                }, {
+                    $push: {
+                        exercise: dbExercise._id
+                    }
+                }, {
+                    new: true
+                });
+            })
+            .then(function (dbUser) {
+                console.log(`dbUser ${dbUser}`);
+                res.json(dbUser);
+            }).catch(function (err) {
+                res.json(err);
+            })
+
+
+    },
+    PopulateUser: function (req, res) {
+        db.User
+            .findOne({
+                _id: req.params.id
+            })
+            .populate("exercise")
+            .then(function (dbUser) {
+                res.json(dbUser)
+            }).catch(function (err) {
+                res.json(err)
+            });
+
+    }
 }

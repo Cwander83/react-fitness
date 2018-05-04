@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import "./style.css";
 import axios from 'axios';
-//import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-//import SignIn from "./components/SignIn";
-//import SignUp from "./components/SignUp";
+import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+import GithubCorner from 'react-github-corner';
+import SignIn from "../../components/SignIn";
+import SignUp from "../../components/SignUp";
+import Wrapper from '../../components/Wrapper';
 
 
  class Dashboard extends Component{
@@ -81,10 +83,45 @@ import axios from 'axios';
 		const loggedIn = this.state.auth.isAuthenticated;
      
 	return (
-		<div>
-			
-		</div>
-    );
+		<Router>
+<div>
+	<Wrapper>
+	<GithubCorner href="https://github.com/username/repo"/>	
+<Route exact path = "/dashboard" render = {()=> {
+  if(loggedIn){
+	return <Redirect to = "/dashboard" />
+  } else{
+	return <SignIn 
+	  handleChange= {this.handleChange} 
+	  handleSubmit = {this.handleSubmit}
+	  email = {this.state.email}
+	  password = {this.state.password}
+	/>
+  } 
+}}/>
+<Route exact path = "/signup" render = {()=> {
+  if(loggedIn){
+	return <Redirect to = "/dashboard" />
+  } else{
+	return <SignUp 
+	  handleChange= {this.handleChange} 
+	  handleSubmit = {this.handleSubmit}
+	  email = {this.state.email}
+	  password = {this.state.password}
+	/>
+  }  
+}}/>
+<Route exact path = "/dashboard" render = {()=> {
+  if(!loggedIn){
+	return <Redirect to = "/dashboard" />
+  } else {
+	return <Dashboard handleLogout = {this.handleLogout} auth = { this.state.auth }/>
+  } 
+}
+}/>
+</Wrapper>
+</div>
+</Router>)
 }
 };
 

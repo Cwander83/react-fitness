@@ -26,7 +26,7 @@ module.exports = function (passport) {
 	});
 
 	router.post("/signup",function(req,res){
-		console.log(res);
+		//console.log(res);
 		const newUser = req.body;
 		User.register(newUser,newUser.password,(err,user)=>{
 			if (err){ return res.json(err.message); }
@@ -37,7 +37,8 @@ module.exports = function (passport) {
 				goals: user.goals,
 				phone: user.phone,
 				isAuthenticated: true
-			});
+			})
+			console.log(`error ${err}`);
 		});
 	});
 

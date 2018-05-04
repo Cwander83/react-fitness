@@ -7,7 +7,7 @@ class SignUp extends Component {
 	return (
 		<div>
 			<h1>SIGN UP</h1>
-			<Link to = "/" >Go to sign in</Link>
+			<Link to = "/dashboard" >Go to sign in</Link>
 			<form>
 				<label>Email</label><br/>
 				<input value = {this.props.username} onChange = {this.props.handleChange} name='username' type='email' placeholder = 'example@email.com'/>

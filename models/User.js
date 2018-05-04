@@ -5,7 +5,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const User = new Schema({
 	screenName: {
 		type: String,
-		
+
 		trim: true
 	},
 	//you may replace this 'name' field with anything you like
@@ -13,8 +13,12 @@ const User = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "Exercise"
 	}],
-	goals: {type:String},
-	phone: {type:String}
+	goals: {
+		type: String
+	},
+	phone: {
+		type: String
+	}
 });
 //passport-local-mongoose creates a 'username' and some 'password' fields for you
 //you can add some other fields here too if you like
