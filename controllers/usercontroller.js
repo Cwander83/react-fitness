@@ -9,18 +9,33 @@ module.exports = {
     },
     findOneUsers: function (req, res) {
         db.User
-            .findone({})
+            .findone({
+                _id: req.params.id
+            })
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     },
 
+
+
+
     updateUser: function (req, res) {
-        
+
         db.User
             .findByIdAndUpdate({
                 _id: req.params.id
-            }, {$set: req.body})
-            .then(dbUser => res.json(dbUser))
+            }, {
+                $set: req.body,
+            }
+            // , {
+            //     upsert: true,
+            //     overwrite: true
+            // }
+        )
+            .then(function (dbUser) {
+                console.log(`dbuser: ${dbUser}`);
+                res.json(dbUser)
+            })
             .catch(err => res.status(422).json(err));
     },
 
@@ -50,9 +65,10 @@ module.exports = {
             }).catch(function (err) {
                 res.json(err);
             })
-
-
     },
+
+
+
     PopulateUser: function (req, res) {
         db.User
             .findOne({

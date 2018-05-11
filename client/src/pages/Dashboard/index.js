@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import "./style.css";
 import axios from 'axios';
-import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Redirect, NavLink} from "react-router-dom";
 import GithubCorner from 'react-github-corner';
 import SignIn from "../../components/SignIn";
 import SignUp from "../../components/SignUp";
+import Home from '../Home';
 import Wrapper from '../../components/Wrapper';
-
+import Dumbbell from '../../images/icon/dumbbell.svg';
 
  class Dashboard extends Component{
 	state = {
@@ -86,6 +87,11 @@ import Wrapper from '../../components/Wrapper';
 		<Router>
 <div>
 	<Wrapper>
+		<ul className="dashNav">
+		<NavLink to = "/" ><li><img src={Dumbbell}alt='dumbbell' />Home</li></NavLink>
+	<NavLink to = "/" ><li>Calendar</li></NavLink>
+	<NavLink to = "/" ><li>Workout</li></NavLink>
+	</ul>
 	<GithubCorner href="https://github.com/username/repo"/>	
 <Route exact path = "/dashboard" render = {()=> {
   if(loggedIn){
@@ -119,6 +125,8 @@ import Wrapper from '../../components/Wrapper';
   } 
 }
 }/>
+ 
+        <Route exact path="/" render= {()=><Home />}/>
 </Wrapper>
 </div>
 </Router>)
