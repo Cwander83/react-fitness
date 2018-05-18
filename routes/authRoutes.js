@@ -29,12 +29,13 @@ module.exports = function (passport) {
 	});
 
 	router.post("/signup", function (req, res) {
-		console.log(req.body);
+		console.log(`req.body:${req.body}`);
 		const newUser = req.body;
 		User.register(newUser, newUser.password, (err, user) => {
 			if (err) {
 				return res.json(err.message);
 			}
+			console.log(`newUser: ${newUser}`);
 			res.json({
 				userId: user._id,
 				username: user.username,

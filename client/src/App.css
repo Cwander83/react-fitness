@@ -1,1 +1,29 @@
 
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+.wrapper {
+    display: flex;
+    background: url(./images/gym-background.jpg) no-repeat center fixed;
+    background-size: cover;
+    height: 100vh;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box {
+    width: 50%;
+    height: auto;
+    text-align: center;
+  }
+  ul{
+    color: white;
+  }
+  
+  
+  .mainH1 {
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+
+    text-shadow: 1px 1px 1px black;
+    font-size: 60px;
+  }

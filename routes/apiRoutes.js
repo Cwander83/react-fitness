@@ -3,9 +3,12 @@ module.exports = function (passport) {
 	const router = require('express').Router();
 	const usercontroller = require('../controllers/usercontroller.js')
 	// update user adding screenname, goals, phone number
-	router.route("/userUpdateBio/:id")
+
+	router.route("/userUpdate/:id")
 		.get(usercontroller.PopulateUser)
-		.put(usercontroller.updateUser)
+		.put(usercontroller.updateUser);
+
+	router.route("/exercise/:id")
 		.post(usercontroller.addExercise);
 
 	router.route("/allUsers")
