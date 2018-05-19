@@ -8,7 +8,6 @@ module.exports = function (passport) {
 			res.json({
 				userId: req.user._id,
 				username: req.user.username,
-				screenName: req.user.screenName,
 				goals: req.user.goals,
 				phone: req.user.phone,
 				isAuthenticated: true
@@ -18,7 +17,6 @@ module.exports = function (passport) {
 			//nickname: req.user.nickname
 		} else {
 			res.json({
-				screenName: null,
 				goals: null,
 				phone: null,
 				userId: null,
@@ -33,18 +31,18 @@ module.exports = function (passport) {
 		const newUser = req.body;
 		User.register(newUser, newUser.password, (err, user) => {
 			if (err) {
+				console.log(`error ${err}`);
 				return res.json(err.message);
 			}
 			console.log(`newUser: ${newUser}`);
 			res.json({
 				userId: user._id,
-				username: user.username,
-				screenName: user.screenName,
+				username: user.username,				
 				goals: user.goals,
 				phone: user.phone,
 				isAuthenticated: true
 			})
-			console.log(`error ${err}`);
+			
 		});
 	});
 
@@ -53,7 +51,6 @@ module.exports = function (passport) {
 		res.json({
 			userId: req.user._id,
 			username: req.user.username,
-			screenName: req.user.screenName,
 			goals: req.user.goals,
 			phone: req.user.phone,
 			isAuthenticated: true

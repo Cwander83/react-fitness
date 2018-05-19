@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-class Calendar extends Component {
-render(){
+const Calendar =({match})=> {
+    
 
+console.log(match.url);
     return(
         <h1>Hello world this is Calender</h1>
 
     );
-}
+
 };
 
 export default Calendar;

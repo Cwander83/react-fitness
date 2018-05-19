@@ -9,8 +9,8 @@ class Routes extends Component {
             <div>
                 
                 <Route exact path="/home" component={Home} />
-                <Route exact path="/dashboard" render= {()=><Dashboard/>} />
-                <Route exact path="/" render= {()=><Home/>}/>
+                <Route exact path="/dashboard" components={Dashboard} />
+                
                 
             </div>
         )

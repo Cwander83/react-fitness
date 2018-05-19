@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new Schema({
-	screenName: {
-		type: String,
-		trim: true
-	},
+	
 	//you may replace this 'name' field with anything you like
 	exercise: [{
 		type: Schema.Types.ObjectId,
