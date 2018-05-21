@@ -8,20 +8,26 @@ const passport = require("passport");
 const session = require('express-session');
 
 // Configure body parser for AJAX requests
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 // Serve up static assets
 app.use(express.static("client/build"));
 
- // For Passport
-app.use(session({ secret: 'superSecretreact-fitness',resave: true, saveUninitialized:true})); // session secret
+// For Passport
+app.use(session({
+  secret: 'superSecretreact-fitness',
+  resave: true,
+  saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-require('./config/passport.js')(passport,models.User);
+require('./config/passport.js')(passport, models.User);
 
 // Add routes, both API and view
 const routes = require("./routes")(passport);
-app.use('/',routes);
+app.use('/', routes);
 
 
 // Set up promises with mongoose
@@ -33,6 +39,6 @@ mongoose.connect(
 );
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("🌎  ==> API Server now listening");
 });

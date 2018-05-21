@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './style.css';
+import "../../styles/style.css";
 //import {NavLink} from "react-router-dom";
 import {DropdownItem, DropdownMenu, UncontrolledDropdown, DropdownToggle, Dropdown} from 'reactstrap';
 
