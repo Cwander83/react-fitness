@@ -37,15 +37,31 @@ ul {
 
 /*========      Dashboard     =========*/
 
-.dashNav {
-  position: absolute;
+ul.dashNav {
+  background-color: white;
+  opacity: .5;
+}
+
+ul.dashNav li {
+  opacity: 1;
+  vertical-align: auto;
+  list-style-type: none;
   top: 0;
-  left: 0;
+  left: center;
+}
+
+ul.dashNav li a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 25px;
+  display: inline-block;
 }
 
 .dashboardJumbotron {
   background-color: transparent;
   opacity: .9;
+  width: 75%;
 }
 
 ul.dashboardHeader li {

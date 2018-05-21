@@ -125,16 +125,16 @@ class App extends Component {
                <Route
                   path="/dashboard"
                   component={Dashboard}
-                  //   render={() =>
-                  //      !loggedIn ? (
-                  //         <Redirect to="/" />
-                  //      ) : (
-                  //         <Dashboard
-                  //            handleLogout={this.handleLogout}
-                  //            auth={this.state.auth}
-                  //         />
-                  //      )
-                  //   }
+                    // render={() =>
+                    //    !loggedIn ? (
+                    //       <Redirect to="/" />
+                    //    ) : (
+                    //       <Dashboard
+                    //          handleLogout={this.handleLogout}
+                    //          auth={this.state.auth}
+                    //       />
+                    //    )
+                    // }
                />
             </div>
          </Router>

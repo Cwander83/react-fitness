@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const passportLocalMongoose = require('passport-local-mongoose');
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const User = new Schema({
-	
 	//you may replace this 'name' field with anything you like
 	exercise: [{
 		type: Schema.Types.ObjectId,
@@ -14,6 +13,9 @@ const User = new Schema({
 	},
 	phone: {
 		type: String
+	},
+	weight: {
+		type: Number
 	}
 });
 //passport-local-mongoose creates a 'username' and some 'password' fields for you
@@ -21,4 +23,4 @@ const User = new Schema({
 
 User.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model("User", User);

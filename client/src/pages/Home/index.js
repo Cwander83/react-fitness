@@ -13,9 +13,12 @@ class Home extends Component {
             <div className="box">
                <h1 className="mainH1">4 week Revolution</h1>
                <ul>
-                  <NavLink to="/signup" style={{ color: "white" }}>
-                     <li>Dashboard</li>
-                  </NavLink>
+                  <li>
+                     <NavLink to="/signup" style={{ color: "white" }}>
+                        Dashboard
+                     </NavLink>
+                  </li>
+
                   <li>
                      <NavLink to="/calendar" style={{ color: "white" }}>
                         Calendar

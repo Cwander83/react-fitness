@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Form, Label, Input, FormGroup, Button } from "reactstrap";
 
 const SignIn = props => {
+	// const isEnabled=(value) => {value.length < 4};
    return (
       <div>
          <Link className="signLink" to="/signup">

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const Exercise = new Schema({
+    
     exerciseUsed: {
         type: String,
         trim: true

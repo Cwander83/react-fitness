@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const ExerciseData = new Schema({
+    
     reps: {
         type: Number,
         trim: true
@@ -15,8 +16,6 @@ const ExerciseData = new Schema({
         type: String,
     }
 
-
 });
-
 
 module.exports = mongoose.model('ExerciseData', ExerciseData);

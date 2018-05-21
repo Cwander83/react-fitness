@@ -10,28 +10,31 @@ import NavHeader from "../../components/NavHeader";
 import { Jumbotron } from "reactstrap";
 
 const Dashboard = ({ match }) => {
-   console.log(match);
+   //    console.log(match);
 
    return (
       <div>
          <Wrapper>
-            <GithubCorner href="https://github.com/username/repo" />
             <NavHeader />
+            <GithubCorner href="https://github.com/username/repo" />
+
             <Jumbotron className="dashboardJumbotron">
                <ul className="dashboardHeader">
                   <li>
-                     <Link to={`${match.url}/`}>Profile</Link>
+                     <Link to={`${match.url}/profile`}>Profile</Link>
                   </li>
                   <li>
                      <Link to={`${match.url}/weeks`}>Weeks</Link>
                   </li>
                   <li>
-                     <Link to={`${match.url}/personalcalendar`}>Calendar</Link>
+                     <Link to={`${match.url}/personalcalendar`}>
+                        Personal Calendar
+                     </Link>
                   </li>
                </ul>
 
                <div className="dashboardContent">
-                  <Route exact path={`${match.path}/`} component={Profile} />
+                  <Route exact path={`${match.path}/profile`} render={()=><Profile {...match}/> } />
                   <Route exact path={`${match.path}/weeks`} component={Weeks} />
                   <Route
                      exact
