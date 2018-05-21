@@ -34,7 +34,7 @@ const Dashboard = ({ match }) => {
                </ul>
 
                <div className="dashboardContent">
-                  <Route exact path={`${match.path}/profile`} render={()=><Profile {...match}/> } />
+                  <Route exact path={`${match.path}/profile`} render={(match)=><Profile {...match}/> } />
                   <Route exact path={`${match.path}/weeks`} component={Weeks} />
                   <Route
                      exact
