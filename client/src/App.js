@@ -4,13 +4,9 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-// import Profile from "./components/Profile";
 import Home from "./pages/Home";
 import Calendar from "./pages/Calendar";
 import Dashboard from "./pages/Dashboard";
-// import GithubCorner from 'react-github-corner';
-// import Wrapper from './components/Wrapper';
-// import WeeksDropDown from "./components/WeeksDropDown";
 import {} from "reactstrap";
 
 class App extends Component {
@@ -129,16 +125,16 @@ class App extends Component {
                <Route
                   path="/dashboard"
                   component={Dashboard}
-                //   render={() =>
-                //      !loggedIn ? (
-                //         <Redirect to="/" />
-                //      ) : (
-                //         <Dashboard
-                //            handleLogout={this.handleLogout}
-                //            auth={this.state.auth}
-                //         />
-                //      )
-                //   }
+                  //   render={() =>
+                  //      !loggedIn ? (
+                  //         <Redirect to="/" />
+                  //      ) : (
+                  //         <Dashboard
+                  //            handleLogout={this.handleLogout}
+                  //            auth={this.state.auth}
+                  //         />
+                  //      )
+                  //   }
                />
             </div>
          </Router>

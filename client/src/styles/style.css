@@ -43,6 +43,11 @@ ul {
   left: 0;
 }
 
+.dashboardJumbotron {
+  background-color: transparent;
+  opacity: .9;
+}
+
 ul.dashboardHeader li {
   display: inline;
   list-style-type: none;
