@@ -16,6 +16,9 @@ const User = new Schema({
 	},
 	weight: {
 		type: Number
+	},
+	newsletter: {
+		type: Boolean
 	}
 });
 //passport-local-mongoose creates a 'username' and some 'password' fields for you

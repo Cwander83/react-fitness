@@ -3,29 +3,43 @@ import React, { Component } from "react";
 import "../../styles/style.css";
 import ProfileUpdate from "../../components/ProfileUpdate";
 import axios from "axios";
+import API from "../../API/API";
 import { Button } from "reactstrap";
 
 class Profile extends Component {
    state = {
-       weight: "",
-       phonenumber: "",
-       goals: "",
+      weight: "",
+      phone: "",
+      goals: "",
       isUpdateVisible: false,
       auth: {
          userId: "",
          username: "",
+         weight: "",
+         phone: "",
+         goals: "",
          isAuthenticated: false
       }
    };
 
    componentWillMount() {
       axios.get("/auth/isAuthenticated").then(result => {
-         const { userId, isAuthenticated, username } = result.data;
+         const {
+            userId,
+            isAuthenticated,
+            username,
+            weight,
+            phone,
+            goals
+         } = result.data;
          this.setState({
             auth: {
                userId,
                isAuthenticated,
-               username
+               username,
+               weight,
+               phone,
+               goals
             }
          });
       });
@@ -44,9 +58,21 @@ class Profile extends Component {
       });
    };
 
+   handleSubmit = event => {
+      event.preventDefault();
+      const id = this.state.auth.userId;
+      const newProfile = {
+         weight: this.state.weight,
+         phonenumber: this.state.phone,
+         goals: this.state.goals
+      };
+      API.updateUser(id, newProfile);
+   };
+
    render() {
-      console.log(this.state.auth);
+      console.log(this.state.auth.userId);
       console.log(this.props.match);
+      
       return (
          <div>
             <div>
@@ -58,9 +84,9 @@ class Profile extends Component {
                      <h1>Hello world this is Profile</h1>
                      <h3>user name</h3>
                      <h3>Email: {this.state.auth.username}</h3>
-                     <h3>user phone number </h3>
-                     <h3>user goals</h3>
-                     <h3>user exercise history</h3>
+                     <h3>phone number: {this.state.auth.phone} </h3>
+                     <h3>Goals: {this.state.auth.goals}</h3>
+                     <h3>Weight: {this.state.auth.weight}</h3>
                   </div>
                ) : null}
             </div>

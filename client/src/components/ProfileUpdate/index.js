@@ -22,12 +22,12 @@ class ProfileUpdate extends Component {
                   />
                </FormGroup>
                <FormGroup>
-                  <Label for="phonenumber">Phone Number</Label>
+                  <Label for="phone">Phone Number</Label>
                   <Input
-                     value={this.props.phonenumber}
+                     value={this.props.phone}
                      onChange={this.props.handleChange}
-                     id="phonenumber"
-                     name="phonenumber"
+                     id="phone"
+                     name="phone"
                   />
                   <FormText>please enter "10 digit number"</FormText>
                </FormGroup>
@@ -47,7 +47,9 @@ class ProfileUpdate extends Component {
                      <option>Tone Up</option>
                   </Input>
                </FormGroup>
-               <Button>Submit</Button>
+               <Button type="submit" onClick={this.props.handleSubmit}>
+                  Submit
+               </Button>
                <Button>Cancel</Button>
             </Form>
          </div>

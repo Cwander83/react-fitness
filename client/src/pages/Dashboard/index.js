@@ -6,6 +6,7 @@ import Wrapper from "../../components/Wrapper";
 import Calendar from "../Calendar";
 import Profile from "../../components/Profile";
 import Weeks from "../../components/Weeks";
+import WorkoutInput from "../../components/WorkoutProgram/WorkoutInput";
 import NavHeader from "../../components/NavHeader";
 import { Jumbotron } from "reactstrap";
 
@@ -31,6 +32,9 @@ const Dashboard = ({ match }) => {
                         Personal Calendar
                      </Link>
                   </li>
+                  <li>
+                     <Link to={`${match.url}/gym`}>GYM TIME!!</Link>
+                  </li>
                </ul>
 
                <div className="dashboardContent">
@@ -41,6 +45,7 @@ const Dashboard = ({ match }) => {
                      path={`${match.path}/personalcalendar`}
                      component={Calendar}
                   />
+                  <Route exact path={`${match.path}/gym`} component={WorkoutInput} />
                </div>
             </Jumbotron>
          </Wrapper>

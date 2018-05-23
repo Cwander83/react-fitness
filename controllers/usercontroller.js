@@ -6,8 +6,9 @@ module.exports = {
          .then(dbUser => res.json(dbUser))
          .catch(err => res.status(422).json(err));
    },
+
    findOneUsers: function(req, res) {
-      db.User.findone({
+      db.User.find({
          _id: req.params.id
       })
          .then(dbUser => res.json(dbUser))
@@ -15,23 +16,20 @@ module.exports = {
    },
 
    updateUser: function(req, res) {
-      db.User.findByIdAndUpdate(
-         {
-            _id: req.params.id
-         },
-         {
-            $set: req.body
-         }
-         // , {
-         //     upsert: true,
-         //     overwrite: true
-         // }
-      )
+      console.log(`req: ${req.body}`);
+      console.log(`req: ${res}`);
+
+      db.User.findByIdAndUpdate(req.params.id, req.body, {
+         new: true
+      })
          .then(function(dbUser) {
             console.log(`dbuser: ${dbUser}`);
             res.json(dbUser);
          })
-         .catch(err => res.status(422).json(err));
+         .catch(err => {
+            console.log(`err: ${err}`);
+            res.status(422).json(err);
+         });
    },
 
    addExercise: function(req, res) {
