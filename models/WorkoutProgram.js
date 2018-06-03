@@ -13,7 +13,7 @@ const WorkoutProgram = new Schema({
     },
     workout: [{
         type: Schema.Types.ObjectId,
-        ref: "workout"
+        ref: "Workout"
     }],
 
 });
