@@ -11,7 +11,7 @@ const WorkoutProgram = new Schema({
     day: {
         type: Number
     },
-    workout: [{
+    workouts: [{
         type: Schema.Types.ObjectId,
         ref: "Workout"
     }],

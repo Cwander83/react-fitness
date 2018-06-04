@@ -4,16 +4,15 @@ module.exports = function (passport) {
 	const workoutcontroller = require('../controllers/workoutcontroller.js')
 	// update user adding screenname, goals, phone number
     router.route("/create/:id")
-    .post(workoutcontroller.CreateDB);
-	// router.route("/user/:id")
-	// 	.get(usercontroller.findOneUsers)
-	// 	.put(usercontroller.updateUser);
+	.post(workoutcontroller.CreateDB);
+	
+	router.route("/fullworkoutprogram")
+	.get(workoutcontroller.FindAllWeeks);
 
-	// router.route("/exercise/:id")
-	// 	.post(usercontroller.addExercise);
+	router.route("/weekone")
+	.get(workoutcontroller.FindWeekOne);
+	
 
-	// router.route("/allusers")
-	// 	.get(usercontroller.findAllUsers);
 
 	return router;
 };

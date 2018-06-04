@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Calendar from "./pages/Calendar";
 import Dashboard from "./pages/Dashboard";
 import {} from "reactstrap";
+import AllWeeks from "./pages/AllWeeks";
 
 class App extends Component {
    state = {
@@ -91,6 +92,7 @@ class App extends Component {
          <Router>
             <div className="routes">
                <Route path="/calendar" component={Calendar} />
+               <Route path="/fullprogram" component={AllWeeks} />
                <Route exact path="/" component={Home} />
                <Route
                   path="/signin"
@@ -125,16 +127,16 @@ class App extends Component {
                <Route
                   path="/dashboard"
                   component={Dashboard}
-                    // render={() =>
-                    //    !loggedIn ? (
-                    //       <Redirect to="/" />
-                    //    ) : (
-                    //       <Dashboard
-                    //          handleLogout={this.handleLogout}
-                    //          auth={this.state.auth}
-                    //       />
-                    //    )
-                    // }
+                  // render={() =>
+                  //    !loggedIn ? (
+                  //       <Redirect to="/" />
+                  //    ) : (
+                  //       <Dashboard
+                  //          handleLogout={this.handleLogout}
+                  //          auth={this.state.auth}
+                  //       />
+                  //    )
+                  // }
                />
             </div>
          </Router>

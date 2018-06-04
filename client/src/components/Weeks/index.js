@@ -1,10 +1,5 @@
-import React, { Component } from "react";
-import "../../styles/style.css";
-
-class Weeks extends Component {
-   render() {
-      return <h1>Hello world this is Weeks</h1>;
-   }
-}
-
-export default Weeks;
+export * from "./Week1";
+export * from "./Week2";
+export * from "./Week3";
+export * from "./Week4";
+export * from "./ProfileWeeks";

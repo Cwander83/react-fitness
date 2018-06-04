@@ -5,7 +5,7 @@ import GithubCorner from "react-github-corner";
 import Wrapper from "../../components/Wrapper";
 import Calendar from "../Calendar";
 import Profile from "../../components/Profile";
-import Weeks from "../../components/Weeks";
+import {ProfileWeeks} from "../../components/Weeks";
 import WorkoutInput from "../../components/WorkoutProgram/WorkoutInput";
 import NavHeader from "../../components/NavHeader";
 import { Jumbotron } from "reactstrap";
@@ -38,14 +38,22 @@ const Dashboard = ({ match }) => {
                </ul>
 
                <div className="dashboardContent">
-                  <Route exact path={`${match.path}/profile`} render={(match)=><Profile {...match}/> } />
-                  <Route exact path={`${match.path}/weeks`} component={Weeks} />
+                  <Route
+                     exact
+                     path={`${match.path}/profile`}
+                     render={match => <Profile {...match} />}
+                  />
+                  <Route exact path={`${match.path}/profileweeks`} component={ProfileWeeks} />
                   <Route
                      exact
                      path={`${match.path}/personalcalendar`}
                      component={Calendar}
                   />
-                  <Route exact path={`${match.path}/gym`} component={WorkoutInput} />
+                  <Route
+                     exact
+                     path={`${match.path}/gym`}
+                     component={WorkoutInput}
+                  />
                </div>
             </Jumbotron>
          </Wrapper>

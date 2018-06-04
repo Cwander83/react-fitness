@@ -72,7 +72,7 @@ class Profile extends Component {
    render() {
       console.log(this.state.auth.userId);
       console.log(this.props.match);
-      
+
       return (
          <div>
             <div>

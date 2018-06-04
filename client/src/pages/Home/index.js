@@ -9,7 +9,7 @@ class Home extends Component {
    render() {
       return (
          <Wrapper>
-            <GithubCorner href="https://github.com/username/repo" />
+            <GithubCorner href="https://github.com/Cwander83/react-fitness" />
             <div className="box">
                <h1 className="mainH1">4 week Revolution</h1>
                <ul>
@@ -18,7 +18,11 @@ class Home extends Component {
                         Dashboard
                      </NavLink>
                   </li>
-
+                  <li>
+                  <NavLink to="/fullprogram" style={{ color: "white" }}>
+                     Workout Program
+                  </NavLink>
+               </li>
                   <li>
                      <NavLink to="/calendar" style={{ color: "white" }}>
                         Calendar
