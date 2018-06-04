@@ -5,7 +5,10 @@ import Wrapper from "../../components/Wrapper";
 import NavHeader from "../../components/NavHeader";
 import { Route, Link } from "react-router-dom";
 import { Jumbotron } from "reactstrap";
-import { Week1, Week2, Week3, Week4 } from "../../components/Weeks";
+import  Week1 from "../../components/Weeks/Week1";
+import  Week2 from "../../components/Weeks/Week2";
+import  Week3 from "../../components/Weeks/Week3";
+import  Week4 from "../../components/Weeks/Week4";
 
 const AllWeeks = ({ match }) => {
    console.log(match.url);

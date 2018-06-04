@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "../../styles/style.css";
 import ProfileUpdate from "../../components/ProfileUpdate";
 import axios from "axios";
-import API from "../../API/API";
+import API from "../../utils/API";
 import { Button } from "reactstrap";
 
 class Profile extends Component {

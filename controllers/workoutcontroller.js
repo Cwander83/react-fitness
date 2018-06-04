@@ -1,7 +1,6 @@
 const db = require("../models");
 
 module.exports = {
-    
     CreateDB: function (req, res) {
         db.Workout.create(req.body)
             .then(function (dbWorkout) {
@@ -18,6 +17,7 @@ module.exports = {
 
     FindAllWeeks: function (req, res) {
         db.WorkoutProgram.find({})
+            .populate("workouts")
             .then(dbWorkoutProgram => res.json(dbWorkoutProgram))
             .catch(err => res.status(422).json(err));
     },
