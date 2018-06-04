@@ -9,8 +9,8 @@ module.exports = function (passport) {
 	router.route("/fullworkoutprogram")
 	.get(workoutcontroller.FindAllWeeks);
 
-	router.route("/weekone")
-	.get(workoutcontroller.FindWeekOne);
+	router.route("/week")
+	.get(workoutcontroller.FindWeek);
 	
 
 

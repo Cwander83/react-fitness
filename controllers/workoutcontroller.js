@@ -16,14 +16,16 @@ module.exports = {
     },
 
     FindAllWeeks: function (req, res) {
-        db.WorkoutProgram.find({})
+        console.log(req.query);
+        //console.log(`query: ${JSON.stringify(req)}`);
+        db.WorkoutProgram.find({week:req})
             .populate("workouts")
             .then(dbWorkoutProgram => res.json(dbWorkoutProgram))
             .catch(err => res.status(422).json(err));
     },
 
-    FindWeekOne: function (req, res) {
-        db.WorkoutProgram.find({})
+    FindWeek: function (req, res) {
+        db.WorkoutProgram.find(req.query)
             .populate("workouts")
             .then(function (dbWorkoutProgram) {
                 console.log(`db: ${dbWorkoutProgram}`);
