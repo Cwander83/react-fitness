@@ -45,10 +45,6 @@ class App extends Component {
 
    handleSubmit = event => {
       event.preventDefault();
-
-      // console.log(`event: ${event}`);
-      // console.log(`event: ${event.target}`);
-
       //call a sign In function
       const newUser = {
          username: this.state.username,

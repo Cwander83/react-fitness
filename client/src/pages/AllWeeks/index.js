@@ -5,10 +5,7 @@ import Wrapper from "../../components/Wrapper";
 import NavHeader from "../../components/NavHeader";
 import { Route, Link } from "react-router-dom";
 import { Jumbotron } from "reactstrap";
-import  Week1 from "../../components/Weeks/Week1";
-import  Week2 from "../../components/Weeks/Week2";
-import  Week3 from "../../components/Weeks/Week3";
-import  Week4 from "../../components/Weeks/Week4";
+import Weeks from "../../components/Weeks";
 
 const AllWeeks = ({ match }) => {
    console.log(match.url);
@@ -33,10 +30,26 @@ const AllWeeks = ({ match }) => {
             </ul>
 
             <div className="dashboardContent">
-               <Route exact path={`${match.path}/week1`} component={Week1} />
-               <Route exact path={`${match.path}/week2`} component={Week2} />
-               <Route exact path={`${match.path}/week3`} component={Week3} />
-               <Route exact path={`${match.path}/week4`} component={Week4} />
+               <Route
+                  exact
+                  path={`${match.path}/week1`}
+                  render={() => <Weeks programWeek={1} />}
+               />
+               <Route
+                  exact
+                  path={`${match.path}/week2`}
+                  render={() => <Weeks programWeek={2} />}
+               />
+               <Route
+                  exact
+                  path={`${match.path}/week3`}
+                  render={() => <Weeks programWeek={3} />}
+               />
+               <Route
+                  exact
+                  path={`${match.path}/week4`}
+                  render={() => <Weeks programWeek={4} />}
+               />
             </div>
          </Jumbotron>
       </Wrapper>

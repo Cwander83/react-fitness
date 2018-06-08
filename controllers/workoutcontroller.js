@@ -16,9 +16,9 @@ module.exports = {
     },
 
     FindAllWeeks: function (req, res) {
-        console.log(req.query);
+        //console.log(req.query);
         //console.log(`query: ${JSON.stringify(req)}`);
-        db.WorkoutProgram.find({week:req})
+        db.WorkoutProgram.find()
             .populate("workouts")
             .then(dbWorkoutProgram => res.json(dbWorkoutProgram))
             .catch(err => res.status(422).json(err));

@@ -11,8 +11,8 @@ export default {
    },
    // mainly for the profile page updates the bio of the user by the userID
    updateUser: function(id, data) {
-      console.log(`API data: ${JSON.stringify(data)}`);
-      console.log(`id: ${id}`);
+    //   console.log(`API data: ${JSON.stringify(data)}`);
+    //   console.log(`id: ${id}`);
       return axios.put("/api/user/" + id, data);
    },
    FindWorkoutPlan: function(query) {
