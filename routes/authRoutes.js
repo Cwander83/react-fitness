@@ -10,6 +10,7 @@ module.exports = function(passport) {
             username: req.user.username,
             goals: req.user.goals,
             phone: req.user.phone,
+            weight: req.user.weight,
             isAuthenticated: true
          });
          //you can also pass up any other fields you with to expose
@@ -20,6 +21,7 @@ module.exports = function(passport) {
             goals: null,
             phone: null,
             userId: null,
+            weight: null,
             username: null,
             isAuthenticated: false
          });

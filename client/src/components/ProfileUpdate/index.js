@@ -4,6 +4,8 @@ import "../../styles/style.css";
 import { Form, FormGroup, FormText, Button, Input, Label } from "reactstrap";
 
 class ProfileUpdate extends Component {
+
+  
    render() {
       //console.log(this.match);
       console.log(this.props);

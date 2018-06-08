@@ -19,9 +19,7 @@ module.exports = {
       console.log(`req: ${req.body}`);
       console.log(`req: ${res}`);
 
-      db.User.findByIdAndUpdate(req.params.id, req.body, {
-         new: true
-      })
+      db.User.findByIdAndUpdate(req.params.id, req.body)
          .then(function(dbUser) {
             console.log(`dbuser: ${dbUser}`);
             res.json(dbUser);

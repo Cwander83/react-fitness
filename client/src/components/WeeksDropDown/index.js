@@ -38,9 +38,7 @@ class WeeksDropDown extends Component {
                Workout Plan
             </DropdownToggle>
             <DropdownMenu>
-               <UncontrolledDropdown>
-                  <DropdownToggle nav>week 1</DropdownToggle>
-               </UncontrolledDropdown>
+            <DropdownItem href="/fullprogram/week1">Another Action</DropdownItem>
                <DropdownItem divider />
                <UncontrolledDropdown>
                   <DropdownToggle nav>week 2</DropdownToggle>

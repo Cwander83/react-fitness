@@ -9,7 +9,7 @@ class Weeks extends Component {
       workoutprograms: []
    };
 
-   componentWillMount() {
+   componentDidMount() {
       this.loadProgram();
    }
 
@@ -53,7 +53,7 @@ class Weeks extends Component {
 
                                           {workout.totalsets ? (
                                              <h6>
-                                                Total Sets:{workout.totalsets}
+                                                Total Sets: {workout.totalsets}
                                              </h6>
                                           ) : (
                                              ""

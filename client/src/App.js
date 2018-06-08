@@ -94,7 +94,7 @@ class App extends Component {
                   path="/signin"
                   render={() =>
                      loggedIn ? (
-                        <Redirect to="/dashboard" />
+                        <Redirect to="/dashboard/profile" />
                      ) : (
                         <SignIn
                            handleChange={this.handleChange}
@@ -109,7 +109,7 @@ class App extends Component {
                   path="/signup"
                   render={() =>
                      loggedIn ? (
-                        <Redirect to="/dashboard" />
+                        <Redirect to="/dashboard/profile" />
                      ) : (
                         <SignUp
                            handleChange={this.handleChange}

@@ -8,21 +8,21 @@ import { Button } from "reactstrap";
 
 class Profile extends Component {
    state = {
-      weight: "",
+      weight: null,
       phone: "",
       goals: "",
       isUpdateVisible: false,
       auth: {
          userId: "",
          username: "",
-         weight: "",
+         weight: null,
          phone: "",
          goals: "",
          isAuthenticated: false
       }
    };
 
-   componentWillMount() {
+   componentDidMount() {
       axios.get("/auth/isAuthenticated").then(result => {
          const {
             userId,
@@ -41,13 +41,13 @@ class Profile extends Component {
                phone,
                goals
             }
-         })
-      })
-   };
+         });
+      });
+   }
 
    handleUpdate() {
       this.setState({ isUpdateVisible: true });
-   };
+   }
 
    handleChange = event => {
       const { name, value } = event.target;
@@ -67,11 +67,18 @@ class Profile extends Component {
          goals: this.state.goals
       };
       API.updateUser(id, newProfile);
+      this.setState({isUpdateVisible: false})
+    //   setTimeout(
+    //      function() {
+    //         this.setState({ isUpdateVisible: false });
+    //      }.bind(this),
+    //      3000
+    //   );
    };
 
    render() {
-      console.log(this.state.auth.userId);
-      console.log(this.props.match);
+      console.log(this.state.auth);
+      // console.log(this.props.match);
 
       return (
          <div>
@@ -99,8 +106,8 @@ class Profile extends Component {
                ) : null}
             </div>
          </div>
-      )
+      );
    }
-};
+}
 
 export default Profile;

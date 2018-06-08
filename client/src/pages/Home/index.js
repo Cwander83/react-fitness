@@ -19,7 +19,7 @@ class Home extends Component {
                      </NavLink>
                   </li>
                   <li>
-                  <NavLink to="/fullprogram" style={{ color: "white" }}>
+                  <NavLink to="/fullprogram/week1" style={{ color: "white" }}>
                      Workout Program
                   </NavLink>
                </li>

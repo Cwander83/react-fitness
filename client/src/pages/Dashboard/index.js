@@ -8,7 +8,7 @@ import Profile from "../../components/Profile";
 import WorkoutInput from "../../components/WorkoutProgram/WorkoutInput";
 import NavHeader from "../../components/NavHeader";
 import { Jumbotron } from "reactstrap";
-import WeeksDropDown from "../../components/WeeksDropDown";
+
 
 const Dashboard = ({ match }) => {
    //    console.log(match);
@@ -23,9 +23,6 @@ const Dashboard = ({ match }) => {
                <ul className="dashboardHeader">
                   <li>
                      <Link to={`${match.url}/profile`}>Profile</Link>
-                  </li>
-                  <li>
-                     <Link to={`${match.url}/profileweeks`}>Weeks</Link>
                   </li>
                   <li>
                      <Link to={`${match.url}/personalcalendar`}>
@@ -43,11 +40,7 @@ const Dashboard = ({ match }) => {
                      path={`${match.path}/profile`}
                      render={match => <Profile {...match} />}
                   />
-                  <Route
-                     exact
-                     path={`${match.path}/profileweeks`}
-                     render={match => <WeeksDropDown {...match} />}
-                  />
+                 
                   <Route
                      exact
                      path={`${match.path}/personalcalendar`}

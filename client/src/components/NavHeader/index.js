@@ -12,7 +12,10 @@ const NavHeader = props => {
             <Link to="/calendar">Calendar</Link>
          </li>
          <li>
-            
+         <Link to="/fullprogram">Workout Program</Link>
+         </li>
+         <li>
+         <Link to="/signup">Dashboard</Link>
          </li>
       </ul>
    );
