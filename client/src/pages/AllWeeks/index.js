@@ -36,17 +36,17 @@ const AllWeeks = ({ match }) => {
                   render={() => <Weeks programWeek={1} />}
                />
                <Route
-                  exact
+                  
                   path={`${match.path}/week2`}
                   render={() => <Weeks programWeek={2} />}
                />
                <Route
-                  exact
+                 
                   path={`${match.path}/week3`}
                   render={() => <Weeks programWeek={3} />}
                />
                <Route
-                  exact
+                  
                   path={`${match.path}/week4`}
                   render={() => <Weeks programWeek={4} />}
                />

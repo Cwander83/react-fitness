@@ -41,13 +41,13 @@ class Profile extends Component {
                phone,
                goals
             }
-         });
-      });
-   }
+         })
+      })
+   };
 
    handleUpdate() {
       this.setState({ isUpdateVisible: true });
-   }
+   };
 
    handleChange = event => {
       const { name, value } = event.target;
@@ -99,8 +99,8 @@ class Profile extends Component {
                ) : null}
             </div>
          </div>
-      );
+      )
    }
-}
+};
 
 export default Profile;

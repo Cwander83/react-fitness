@@ -14,7 +14,6 @@ class Weeks extends Component {
    }
 
    loadProgram = () => {
-      //const query = 1;
       API.FindWorkoutPlan()
          .then(res =>
             this.setState({
@@ -24,10 +23,12 @@ class Weeks extends Component {
          .catch(err => console.log(err));
    };
 
+   // to map out the day of the week input
+   // mapOption() {}
+
    render() {
       console.log(this.state.workoutprograms);
-      console.log(this.props);
-      
+
       return (
          <div>
             <h1>Week {this.props.programWeek}</h1>
@@ -38,14 +39,52 @@ class Weeks extends Component {
                   .map((plan, i) => {
                      return (
                         <li key={i}>
-                           week: {plan.week} day: {plan.day}
+                           <h3>Day {plan.day}</h3>
                            <ul style={{ color: "black" }}>
                               {typeof plan.workouts === "object"}
                               {plan.workouts &&
                                  plan.workouts.map((workout, i) => {
                                     return (
                                        <li key={i}>
-                                          exercisename: {workout.exercisename}
+                                          <h4>{workout.exercisename}</h4>
+                                          <h6>
+                                             Muscle Group: {workout.bodypart}
+                                          </h6>
+
+                                          {workout.totalsets ? (
+                                             <h6>
+                                                Total Sets:{workout.totalsets}
+                                             </h6>
+                                          ) : (
+                                             ""
+                                          )}
+                                          {workout.warmupreps ? (
+                                             <h6>
+                                                Warm Up Sets:{" "}
+                                                {workout.warmupsets}x{
+                                                   workout.warmupreps
+                                                }{" "}
+                                                Reps {workout.warmupdesc}
+                                             </h6>
+                                          ) : (
+                                             " "
+                                          )}
+                                          {workout.regularsets ? (
+                                             <h6>
+                                                Working Sets:{" "}
+                                                {workout.regularsets}x{
+                                                   workout.regularreps
+                                                }{" "}
+                                                Reps {workout.regulardesc}
+                                             </h6>
+                                          ) : (
+                                             <h6>{workout.regulardesc}</h6>
+                                          )}
+                                          {workout.superset ? (
+                                             <h6>Superset this exercise</h6>
+                                          ) : (
+                                             ""
+                                          )}
                                        </li>
                                     );
                                  })}

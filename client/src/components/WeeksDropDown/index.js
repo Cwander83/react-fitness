@@ -32,8 +32,8 @@ class WeeksDropDown extends Component {
                tag="span"
                onClick={this.toggle}
                data-toggle="dropdown"
-							 aria-expanded={this.state.dropdownOpen}
-							 style={{color: 'black'}}
+               aria-expanded={this.state.dropdownOpen}
+               style={{ color: "black" }}
             >
                Workout Plan
             </DropdownToggle>
