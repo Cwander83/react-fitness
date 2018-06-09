@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../styles/style.css";
+import "../../../styles/style.css";
 // import axios from "axios";
 import { Form, FormGroup, FormText, Button, Input, Label } from "reactstrap";
 

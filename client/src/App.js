@@ -13,7 +13,9 @@ import AllWeeks from "./pages/AllWeeks";
 class App extends Component {
    state = {
       username: "",
+      usernameError: "",
       password: "",
+      passwordError: "",
       auth: {
          userId: "",
          username: "",
@@ -39,7 +41,8 @@ class App extends Component {
 
       // Set the state for the appropriate input field
       this.setState({
-         [name]: value
+         [name]: value,
+         
       });
    };
 
@@ -99,8 +102,9 @@ class App extends Component {
                         <SignIn
                            handleChange={this.handleChange}
                            handleSubmit={this.handleSubmit}
-                           email={this.state.email}
-                           password={this.state.password}
+                           
+
+                           
                         />
                      )
                   }
@@ -114,25 +118,25 @@ class App extends Component {
                         <SignUp
                            handleChange={this.handleChange}
                            handleSubmit={this.handleSubmit}
-                           email={this.state.email}
-                           password={this.state.password}
+                          
+                           
                         />
                      )
                   }
                />
                <Route
-                  path="/dashboard"
-                  component={Dashboard}
-                  // render={() =>
-                  //    !loggedIn ? (
-                  //       <Redirect to="/" />
-                  //    ) : (
-                  //       <Dashboard
-                  //          handleLogout={this.handleLogout}
-                  //          auth={this.state.auth}
-                  //       />
-                  //    )
-                  // }
+                  path="/dashboard/profile"
+                  
+                  render={() =>
+                     !loggedIn ? (
+                        <Redirect to="/" />
+                     ) : (
+                        <Dashboard
+                           handleLogout={this.handleLogout}
+                           auth={this.state.auth}
+                        />
+                     )
+                  }
                />
             </div>
          </Router>

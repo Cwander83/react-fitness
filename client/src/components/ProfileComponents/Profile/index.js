@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 //import { Route, Link } from "react-router-dom";
-import "../../styles/style.css";
-import ProfileUpdate from "../../components/ProfileUpdate";
+import "../../../styles/style.css";
+import ProfileUpdate from "../ProfileUpdate/index.js";
 import axios from "axios";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 import { Button } from "reactstrap";
 
 class Profile extends Component {
@@ -22,7 +22,7 @@ class Profile extends Component {
       }
    };
 
-   componentDidMount() {
+   componentWillMount() {
       axios.get("/auth/isAuthenticated").then(result => {
          const {
             userId,
@@ -67,18 +67,17 @@ class Profile extends Component {
          goals: this.state.goals
       };
       API.updateUser(id, newProfile);
-      this.setState({isUpdateVisible: false})
-    //   setTimeout(
-    //      function() {
-    //         this.setState({ isUpdateVisible: false });
-    //      }.bind(this),
-    //      3000
-    //   );
+      this.setState({ isUpdateVisible: false });
+      //   setTimeout(
+      //      function() {
+      //         this.setState({ isUpdateVisible: false });
+      //      }.bind(this),
+      //      3000
+      //   );
    };
 
    render() {
-      console.log(this.state.auth);
-      // console.log(this.props.match);
+      console.log(this.state.auth.userId);
 
       return (
          <div>
@@ -88,9 +87,9 @@ class Profile extends Component {
                      <Button onClick={() => this.handleUpdate()}>
                         Edit Profile
                      </Button>
-                     <h1>Hello world this is Profile</h1>
-                     <h3>user name</h3>
-                     <h3>Email: {this.state.auth.username}</h3>
+
+                     <h2>Welcome Back, {this.state.auth.username} </h2>
+                     <br />
                      <h3>phone number: {this.state.auth.phone} </h3>
                      <h3>Goals: {this.state.auth.goals}</h3>
                      <h3>Weight: {this.state.auth.weight}</h3>

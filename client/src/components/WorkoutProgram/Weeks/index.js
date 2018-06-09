@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../../styles/style.css";
-import API from "../../utils/API";
+import "./../../../styles/style.css";
+import API from "./../../../utils/API";
 //import {NavLink} from "react-router-dom";
 import {} from "reactstrap";
 

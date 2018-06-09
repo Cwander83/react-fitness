@@ -15,21 +15,20 @@ class Home extends Component {
                <ul>
                   <li>
                      <NavLink to="/signup" style={{ color: "white" }}>
-                        Dashboard
+                        Dashboard Login
                      </NavLink>
                   </li>
                   <li>
-                  <NavLink to="/fullprogram/week1" style={{ color: "white" }}>
-                     Workout Program
-                  </NavLink>
-               </li>
-                  <li>
-                     <NavLink to="/calendar" style={{ color: "white" }}>
-                        Calendar
+                     <NavLink
+                        to="/fullprogram/week1"
+                        style={{ color: "white" }}
+                     >
+                        Workout Program
                      </NavLink>
                   </li>
                </ul>
             </div>
+            <div />
          </Wrapper>
       );
    }

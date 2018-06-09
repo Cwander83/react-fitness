@@ -5,7 +5,7 @@ import Wrapper from "../../components/Wrapper";
 import NavHeader from "../../components/NavHeader";
 import { Route, Link } from "react-router-dom";
 import { Jumbotron } from "reactstrap";
-import Weeks from "../../components/Weeks";
+import Weeks from "../../components/WorkoutProgram/Weeks";
 
 const AllWeeks = ({ match }) => {
    console.log(match.url);
@@ -57,3 +57,4 @@ const AllWeeks = ({ match }) => {
 };
 
 export default AllWeeks;
+

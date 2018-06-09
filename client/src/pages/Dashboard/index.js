@@ -4,14 +4,14 @@ import { Route, Link } from "react-router-dom";
 import GithubCorner from "react-github-corner";
 import Wrapper from "../../components/Wrapper";
 import Calendar from "../Calendar";
-import Profile from "../../components/Profile";
+import Profile from "../../components/ProfileComponents/Profile";
 import WorkoutInput from "../../components/WorkoutProgram/WorkoutInput";
 import NavHeader from "../../components/NavHeader";
 import { Jumbotron } from "reactstrap";
 
 
 const Dashboard = ({ match }) => {
-   //    console.log(match);
+       console.log(match);
 
    return (
       <div>
