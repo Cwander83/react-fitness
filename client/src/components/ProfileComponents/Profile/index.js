@@ -2,47 +2,32 @@ import React, { Component } from "react";
 //import { Route, Link } from "react-router-dom";
 import "../../../styles/style.css";
 import ProfileUpdate from "../ProfileUpdate/index.js";
-import axios from "axios";
+//import axios from "axios";
 import API from "../../../utils/API";
 import { Button } from "reactstrap";
 
 class Profile extends Component {
    state = {
       weight: null,
-      phone: "",
+      phone: null,
       goals: "",
       isUpdateVisible: false,
       auth: {
          userId: "",
          username: "",
          weight: null,
-         phone: "",
+         phone: null,
          goals: "",
          isAuthenticated: false
       }
    };
-
+   
    componentWillMount() {
-      axios.get("/auth/isAuthenticated").then(result => {
-         const {
-            userId,
-            isAuthenticated,
-            username,
-            weight,
-            phone,
-            goals
-         } = result.data;
-         this.setState({
-            auth: {
-               userId,
-               isAuthenticated,
-               username,
-               weight,
-               phone,
-               goals
-            }
-         });
-      });
+       console.log("componentdidmount");
+       //console.log(this.props.auth.userId);
+       //const id = this.props.auth.userId
+       console.log("id");
+      //API.findOneUsers(id)
    }
 
    handleUpdate() {
@@ -67,7 +52,7 @@ class Profile extends Component {
          goals: this.state.goals
       };
       API.updateUser(id, newProfile);
-      this.setState({ isUpdateVisible: false });
+      
       //   setTimeout(
       //      function() {
       //         this.setState({ isUpdateVisible: false });
@@ -77,7 +62,7 @@ class Profile extends Component {
    };
 
    render() {
-      console.log(this.state.auth.userId);
+     
 
       return (
          <div>

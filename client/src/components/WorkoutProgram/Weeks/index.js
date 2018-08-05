@@ -1,40 +1,25 @@
 import React, { Component } from "react";
 import "./../../../styles/style.css";
-import API from "./../../../utils/API";
 //import {NavLink} from "react-router-dom";
 import {} from "reactstrap";
+import { connect } from "react-redux";
+import { uploadPlan } from "../../../redux/actions";
 
 class Weeks extends Component {
-   state = {
-      workoutprograms: []
-   };
-
    componentDidMount() {
-      this.loadProgram();
+      this.props.dispatch(uploadPlan());
    }
 
-   loadProgram = () => {
-      API.FindWorkoutPlan()
-         .then(res =>
-            this.setState({
-               workoutprograms: res.data
-            })
-         )
-         .catch(err => console.log(err));
-   };
-
-   // to map out the day of the week input
-   // mapOption() {}
-
    render() {
-      console.log(this.state.workoutprograms);
+      //console.log(this.props.data);
+      console.log(this)
 
       return (
          <div>
             <h1>Week {this.props.programWeek}</h1>
 
             <ul style={{ color: "black" }}>
-               {this.state.workoutprograms
+               {this.props.workoutPlan
                   .filter(weeks => weeks.week === this.props.programWeek)
                   .map((plan, i) => {
                      return (
@@ -98,4 +83,8 @@ class Weeks extends Component {
    }
 }
 
-export default Weeks;
+const mapStateToProps = state => ({
+   workoutPlan: state.workoutPlan.data
+});
+
+export default connect(mapStateToProps)(Weeks);

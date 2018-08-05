@@ -15,7 +15,8 @@ export default {
     //   console.log(`id: ${id}`);
       return axios.put("/api/user/" + id, data);
    },
-   FindWorkoutPlan: function(query) {
-      return axios.get("/workout/fullworkoutprogram", query);
+   FindWorkoutPlan: function() {
+      return axios.get("/workout/fullworkoutprogram");
    }
 };
+  

@@ -8,7 +8,7 @@ import { Jumbotron } from "reactstrap";
 import Weeks from "../../components/WorkoutProgram/Weeks";
 
 const AllWeeks = ({ match }) => {
-   console.log(match.url);
+ 
    return (
       <Wrapper>
          <GithubCorner href="https://github.com/Cwander83/react-fitness" />

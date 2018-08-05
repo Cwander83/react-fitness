@@ -11,7 +11,7 @@ const User = new Schema({
 	goals: {
 		type: String
 	},
-	phone: {
+	phonenumber: {
 		type: String
 	},
 	weight: {
