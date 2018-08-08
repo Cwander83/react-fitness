@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/style.css";
-import GithubCorner from "react-github-corner";
+
 import Wrapper from "../../components/Wrapper";
 import NavHeader from "../../components/NavHeader";
 import { Route, Link } from "react-router-dom";
@@ -11,20 +11,15 @@ import { uploadPlan } from "../../redux/actions";
 
 class AllWeeks extends Component {
    componentDidMount() {
-     console.log('did mount')
-      
+      console.log("did mount");
    }
-   componentWillMount(){
-       console.log('willmount')
-       this.props.dispatch(uploadPlan());
+   componentWillMount() {
+      console.log("willmount");
+      this.props.dispatch(uploadPlan());
    }
    render() {
-
-       
-      
       return (
          <Wrapper>
-            <GithubCorner href="https://github.com/Cwander83/react-fitness" />
             <NavHeader />
             <Jumbotron className="dashboardJumbotron">
                <ul className="dashboardHeader">
@@ -61,13 +56,12 @@ class AllWeeks extends Component {
                      render={() => <Weeks programWeek={4} />}
                   />
                </div>
-               
             </Jumbotron>
          </Wrapper>
       );
    }
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
    workoutPlan: state.workoutPlan.data
 });
 

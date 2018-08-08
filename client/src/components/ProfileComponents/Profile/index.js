@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import { Route, Link } from "react-router-dom";
 import "../../../styles/style.css";
 import ProfileUpdate from "../ProfileUpdate/index.js";
-//import axios from "axios";
+
 import API from "../../../utils/API";
 import { Button } from "reactstrap";
 
@@ -21,12 +21,12 @@ class Profile extends Component {
          isAuthenticated: false
       }
    };
-   
+
    componentWillMount() {
-       console.log("componentdidmount");
-       //console.log(this.props.auth.userId);
-       //const id = this.props.auth.userId
-       console.log("id");
+      console.log("componentdidmount");
+      //console.log(this.props.auth.userId);
+      //const id = this.props.auth.userId
+      console.log("id");
       //API.findOneUsers(id)
    }
 
@@ -52,7 +52,7 @@ class Profile extends Component {
          goals: this.state.goals
       };
       API.updateUser(id, newProfile);
-      
+
       //   setTimeout(
       //      function() {
       //         this.setState({ isUpdateVisible: false });
@@ -62,8 +62,6 @@ class Profile extends Component {
    };
 
    render() {
-     
-
       return (
          <div>
             <div>

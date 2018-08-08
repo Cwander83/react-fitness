@@ -1,0 +1,6 @@
+// USER
+export const RECIEVE_USER = "RECIEVE_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+
+// WORKOUT PLAN
+export const RECIEVE_PLAN = "RECIEVE_PLAN";

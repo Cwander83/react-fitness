@@ -8,9 +8,7 @@ module.exports = {
    },
 
    findOneUsers: function(req, res) {
-      db.User.findById(
-         {_id:req.params.id}
-      )
+      db.User.findById({ _id: req.params.id })
          .then(dbUser => res.json(dbUser))
          .catch(err => res.status(422).json(err));
    },

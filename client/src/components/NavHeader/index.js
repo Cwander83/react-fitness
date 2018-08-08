@@ -8,7 +8,6 @@ const NavHeader = props => {
          <li>
             <Link to="/">Home</Link>
          </li>
-
          <li>
             <Link to="/fullprogram">Workout Program</Link>
          </li>

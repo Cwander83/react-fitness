@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
    // finds all user in the DB by userID
    findAllUsers: function() {
-      return axios.get("/api/allusers");
+      return fetch("/api/allusers");
    },
    // finds a single user by the userID in the dB
    findOneUsers: function(id) {

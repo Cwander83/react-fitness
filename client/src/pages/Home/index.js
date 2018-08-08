@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import "../../styles/style.css";
 import { NavLink } from "react-router-dom";
-import GithubCorner from "react-github-corner";
+
 import Wrapper from "../../components/Wrapper";
 import {} from "reactstrap";
+import { connect } from "react-redux";
+import {authenticatedUser} from '../../redux/actions'
 
 class Home extends Component {
+    componentWillMount(){
+        this.props.dispatch(authenticatedUser())
+    }
    render() {
       return (
          <Wrapper>
-            <GithubCorner href="https://github.com/Cwander83/react-fitness" />
+            
             <div className="box">
                <h1 className="mainH1">4 week Revolution</h1>
+
                <ul>
                   <li>
-                     <NavLink to="/signup" style={{ color: "white" }}>
+                     <NavLink to="/signin" style={{ color: "white" }}>
                         Dashboard Login
                      </NavLink>
                   </li>
@@ -34,4 +40,4 @@ class Home extends Component {
    }
 }
 
-export default Home;
+export default connect()(Home);
