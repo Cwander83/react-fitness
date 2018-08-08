@@ -11,137 +11,138 @@ import {} from "reactstrap";
 import AllWeeks from "./pages/AllWeeks";
 
 class App extends Component {
-   state = {
-      username: "",
-      usernameError: "",
-      password: "",
-      passwordError: "",
-      auth: {
-         userId: "",
-         username: "",
-         isAuthenticated: false
-      }
-   };
+	state = {
+		username: "",
+		usernameError: "",
+		password: "",
+		passwordError: "",
+		auth: {
+			userId: "",
+			username: "",
+			isAuthenticated: false
+		}
+	};
 
-   componentWillMount() {
-      axios.get("/auth/isAuthenticated").then(result => {
-         const { userId, isAuthenticated, username } = result.data;
-         this.setState({
-            auth: {
-               userId,
-               isAuthenticated,
-               username
-            }
-         });
-      });
-   }
+	componentWillMount() {
+		axios.get("/auth/isAuthenticated").then((result) => {
+			const { userId, isAuthenticated, username } = result.data;
+			this.setState({
+				auth: {
+					userId,
+					isAuthenticated,
+					username
+				}
+			});
+		});
+	}
 
-   handleChange = event => {
-      const { name, value } = event.target;
+	handleChange = (event) => {
+		const { name, value } = event.target;
 
-      // Set the state for the appropriate input field
-      this.setState({
-         [name]: value,
-         
-      });
-   };
+		// Set the state for the appropriate input field
+		this.setState({
+			[name]: value
+		});
+	};
 
-   handleSubmit = event => {
-      event.preventDefault();
-      //call a sign In function
-      const newUser = {
-         username: this.state.username,
-         password: this.state.password
-      };
-      this.setState({
-         username: "",
-         password: ""
-      });
-      const { name } = event.target;
-      axios.post(name, newUser).then(data => {
-         if (data.data.isAuthenticated) {
-            const { userId, isAuthenticated, username } = data.data;
-            this.setState({
-               auth: {
-                  userId,
-                  isAuthenticated,
-                  username
-               }
-            });
-         }
-      });
-   };
+	handleSubmit = (event) => {
+		event.preventDefault();
+		//call a sign In function
+		const newUser = {
+			username: this.state.username,
+			password: this.state.password
+		};
+		this.setState({
+			username: "",
+			password: ""
+		});
+		const { name } = event.target;
+		axios.post(name, newUser).then((data) => {
+			if (data.data.isAuthenticated) {
+				const { userId, isAuthenticated, username } = data.data;
+				this.setState({
+					auth: {
+						userId,
+						isAuthenticated,
+						username
+					}
+				});
+			}
+		});
+	};
 
-   handleLogout = event => {
-      event.preventDefault();
-      axios.get("/auth/logout").then(result => {
-         this.setState({
-            auth: {
-               userId: "",
-               username: "",
-               isAuthenticated: false
-            }
-         });
-      });
-   };
+	handleLogout = (event) => {
+		event.preventDefault();
+		axios.get("/auth/logout").then((result) => {
+			this.setState({
+				auth: {
+					userId: "",
+					username: "",
+					isAuthenticated: false
+				}
+			});
+		});
+	};
 
-   render() {
-      const loggedIn = this.state.auth.isAuthenticated;
-      return (
-         <Router>
-            <div className="routes">
-               <Route path="/calendar" component={Calendar} />
-               <Route path="/fullprogram" component={AllWeeks} />
-               <Route exact path="/" component={Home} />
-               <Route
-                  path="/signin"
-                  render={() =>
-                     loggedIn ? (
-                        <Redirect to="/dashboard/profile" />
-                     ) : (
-                        <SignIn
-                           handleChange={this.handleChange}
-                           handleSubmit={this.handleSubmit}
-                           email={this.state.email}
-                           
-                           password={this.state.password}
-                        />
-                     )
-                  }
-               />
-               <Route
-                  path="/signup"
-                  render={() =>
-                     loggedIn ? (
-                        <Redirect to="/dashboard/profile" />
-                     ) : (
-                        <SignUp
-                           handleChange={this.handleChange}
-                           handleSubmit={this.handleSubmit}
-                           email={this.state.email}
-                           password={this.state.password}
-                        />
-                     )
-                  }
-               />
-               <Route
-                  path="/dashboard"
-                  //component={Dashboard}
-                   render={(props) =>
-                  //    !loggedIn ? (
-                  //       <Redirect to="/" />
-                  //    ) : (
-                         <Dashboard{...props}
-                           handleLogout={this.handleLogout}
-                           auth={this.state.auth}
-                        />
-                  //    )
-                   }
-               />
-            </div>
-         </Router>
-      );
-   }
+	render() {
+		const loggedIn = this.state.auth.isAuthenticated;
+		return (
+			<Router>
+				<div className="routes">
+					<Route path="/calendar" component={Calendar} />
+					<Route path="/fullprogram" component={AllWeeks} />
+					<Route exact path="/" component={Home} />
+					<Route
+						path="/signin"
+						render={() =>
+							loggedIn ? (
+								<Redirect to="/dashboard/profile" />
+							) : (
+								<SignIn
+									handleChange={this.handleChange}
+									handleSubmit={this.handleSubmit}
+									email={this.state.email}
+									password={this.state.password}
+								/>
+							)
+						}
+					/>
+					<Route
+						path="/signup"
+						render={() =>
+							loggedIn ? (
+								<Redirect to="/dashboard/profile" />
+							) : (
+								<SignUp
+									handleChange={this.handleChange}
+									handleSubmit={this.handleSubmit}
+									email={this.state.email}
+									password={this.state.password}
+								/>
+							)
+						}
+					/>
+					<Route
+						path="/dashboard"
+						//component={Dashboard}
+						render={
+							(props) => (
+								//    !loggedIn ? (
+								//       <Redirect to="/" />
+								//    ) : (
+								<Dashboard
+									{...props}
+									handleLogout={this.handleLogout}
+									auth={this.state.auth}
+								/>
+							)
+							//    )
+						}
+					/>
+				</div>
+			</Router>
+		);
+	}
 }
 
 export default App;

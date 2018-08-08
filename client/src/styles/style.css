@@ -1,4 +1,6 @@
-body {
+body,
+  {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -12,7 +14,7 @@ body {
   background: url(./../images/gym-background.jpg) no-repeat center fixed;
   background-size: cover;
   height: 100vh;
-  min-height: 100vh;
+  /* min-height: 100vh;  */
   background-attachment: fixed;
   justify-content: center;
   align-items: center;
@@ -34,7 +36,7 @@ ul {
 .mainH1 {
   color: #f2f7ff;
   font-family: 'Exo 2', sans-serif;
-  text-shadow: 1px 2px 1px  black;
+  text-shadow: 1px 2px 1px black;
   font-size: 75px;
 }
 
@@ -68,22 +70,26 @@ ul.dashNav li a {
 }
 
 ul.dashboardHeader li {
-  display: inline;
+  display: flex;
   list-style-type: none;
   margin: 0;
+  align-content: center;
 }
 
 ul.dashboardHeader {
   background-color: #111;
   padding: 0;
+  display: flex;
 }
 
 ul.dashboardHeader li a {
+  font-size: 20px;
   color: #FFF;
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
-  display: inline-block;
+  
+
 }
 
 .dashboardContent {
@@ -100,4 +106,104 @@ ul.dashboardHeader li a {
 
 .dashboardContent li {
   margin-bottom: 10px;
+}
+.weeksPTag {
+  font-size: 20px;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+  .box {
+    width: 80%;
+  }
+  .mainH1 {
+    font-size: 50px;
+  }
+  .box ul {
+    padding: 0;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+
+@media only screen and (min-width: 321px) {}
+
+/* Smartphones (portrait) ----------- */
+
+@media only screen and (max-width: 320px) {
+  .mainH1 {
+    font-size: 45px;
+  }
+  .box ul {
+    padding: 0;
+    margin-top: 10px;
+  }
+  ul.dashNav {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  ul.dashNav li a {
+    padding: 0;
+    display: inline;
+  }
+  .dashboardJumbotron {
+    margin: 0;
+    width: 90%;
+  }
+  .jumbotron {
+    padding: 4px 2px;
+    margin-bottom: 5px;
+  }
+  .dashboardContent {
+    height: 300px;
+  }
+  ul.dashboardHeader li a {
+    padding: 6px;
+  }
+  .weeksPTag{
+    font-size: 12px;
+  }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* iPhone 4 ----------- */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
 }
