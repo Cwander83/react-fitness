@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "../../styles/style.css";
 import GithubCorner from "react-github-corner";
 import Wrapper from "../../components/Wrapper";
@@ -6,55 +6,69 @@ import NavHeader from "../../components/NavHeader";
 import { Route, Link } from "react-router-dom";
 import { Jumbotron } from "reactstrap";
 import Weeks from "../../components/WorkoutProgram/Weeks";
+import { connect } from "react-redux";
+import { uploadPlan } from "../../redux/actions";
 
-const AllWeeks = ({ match }) => {
- 
-   return (
-      <Wrapper>
-         <GithubCorner href="https://github.com/Cwander83/react-fitness" />
-         <NavHeader />
-         <Jumbotron className="dashboardJumbotron">
-            <ul className="dashboardHeader">
-               <li>
-                  <Link to={`${match.url}/week1`}>week 1</Link>
-               </li>
-               <li>
-                  <Link to={`${match.url}/week2`}>week 2</Link>
-               </li>
-               <li>
-                  <Link to={`${match.url}/week3`}>week 3</Link>
-               </li>
-               <li>
-                  <Link to={`${match.url}/week4`}>week 4</Link>
-               </li>
-            </ul>
+class AllWeeks extends Component {
+   componentDidMount() {
+     console.log('did mount')
+      
+   }
+   componentWillMount(){
+       console.log('willmount')
+       this.props.dispatch(uploadPlan());
+   }
+   render() {
 
-            <div className="dashboardContent">
-               <Route
-                  exact
-                  path={`${match.path}/week1`}
-                  render={() => <Weeks programWeek={1} />}
-               />
-               <Route
-                  
-                  path={`${match.path}/week2`}
-                  render={() => <Weeks programWeek={2} />}
-               />
-               <Route
-                 
-                  path={`${match.path}/week3`}
-                  render={() => <Weeks programWeek={3} />}
-               />
-               <Route
-                  
-                  path={`${match.path}/week4`}
-                  render={() => <Weeks programWeek={4} />}
-               />
-            </div>
-         </Jumbotron>
-      </Wrapper>
-   );
-};
+       
+      
+      return (
+         <Wrapper>
+            <GithubCorner href="https://github.com/Cwander83/react-fitness" />
+            <NavHeader />
+            <Jumbotron className="dashboardJumbotron">
+               <ul className="dashboardHeader">
+                  <li>
+                     <Link to={`${this.props.match.url}/week1`}>week 1</Link>
+                  </li>
+                  <li>
+                     <Link to={`${this.props.match.url}/week2`}>week 2</Link>
+                  </li>
+                  <li>
+                     <Link to={`${this.props.match.url}/week3`}>week 3</Link>
+                  </li>
+                  <li>
+                     <Link to={`${this.props.match.url}/week4`}>week 4</Link>
+                  </li>
+               </ul>
 
-export default AllWeeks;
+               <div className="dashboardContent">
+                  <Route
+                     exact
+                     path={`${this.props.match.path}/week1`}
+                     render={() => <Weeks programWeek={1} />}
+                  />
+                  <Route
+                     path={`${this.props.match.path}/week2`}
+                     render={() => <Weeks programWeek={2} />}
+                  />
+                  <Route
+                     path={`${this.props.match.path}/week3`}
+                     render={() => <Weeks programWeek={3} />}
+                  />
+                  <Route
+                     path={`${this.props.match.path}/week4`}
+                     render={() => <Weeks programWeek={4} />}
+                  />
+               </div>
+               
+            </Jumbotron>
+         </Wrapper>
+      );
+   }
+}
+const mapStateToProps = (state) => ({
+   workoutPlan: state.workoutPlan.data
+});
 
+export default connect(mapStateToProps)(AllWeeks);

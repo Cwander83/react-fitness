@@ -1,3 +1,5 @@
+console.log(data);
+
 const data = [{
         week: 1,
         day: 1,

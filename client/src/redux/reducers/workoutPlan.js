@@ -8,6 +8,7 @@ const workoutPlan = (state = initialState, action) => {
          return {
             ...state,
             data: action.workoutPlan
+            
          };
       default:
          return state;

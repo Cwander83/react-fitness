@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static("/client/build"));
 
 // For Passport
 app.use(
