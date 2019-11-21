@@ -11,61 +11,52 @@ import { Jumbotron } from "reactstrap";
 import API from "../../utils/API";
 
 class Dashboard extends Component {
-  
-   componentWillMount() {
-   
-   }
+  componentWillMount() {}
 
-   render() {
-     
-      return (
-         <div>
-            <Wrapper>
-               <NavHeader />
-               
+  render() {
+    return (
+      <div>
+        <Wrapper>
+          <NavHeader />
 
-               <Jumbotron className="dashboardJumbotron">
-                  <ul className="dashboardHeader">
-                     <li>
-                        <Link to={`${this.props.match.url}/profile`}>
-                           Profile
-                        </Link>
-                     </li>
-                     <li>
-                        <Link to={`${this.props.match.url}/personalcalendar`}>
-                           Personal Calendar
-                        </Link>
-                     </li>
-                     <li>
-                        <Link to={`${this.props.match.url}/gym`}>
-                           GYM TIME!!
-                        </Link>
-                     </li>
-                  </ul>
+          <Jumbotron className="dashboardJumbotron">
+            <ul className="dashboardHeader">
+              <li>
+                <Link to={`${this.props.match.url}/profile`}>Profile</Link>
+              </li>
+              <li>
+                <Link to={`${this.props.match.url}/personalcalendar`}>
+                  Personal Calendar
+                </Link>
+              </li>
+              <li>
+                <Link to={`${this.props.match.url}/gym`}>GYM TIME!!</Link>
+              </li>
+            </ul>
 
-                  <div className="dashboardContent">
-                     <Route
-                        exact
-                        path={`${this.props.match.path}/profile`}
-                        render={props => <Profile {...props} />}
-                     />
+            <div className="dashboardContent">
+              <Route
+                exact
+                path={`${this.props.match.path}/profile`}
+                render={props => <Profile {...props} />}
+              />
 
-                     <Route
-                        exact
-                        path={`${this.props.match.path}/personalcalendar`}
-                        component={Calendar}
-                     />
-                     <Route
-                        exact
-                        path={`${this.props.match.path}/gym`}
-                        component={WorkoutInput}
-                     />
-                  </div>
-               </Jumbotron>
-            </Wrapper>
-         </div>
-      );
-   }
+              <Route
+                exact
+                path={`${this.props.match.path}/personalcalendar`}
+                component={Calendar}
+              />
+              <Route
+                exact
+                path={`${this.props.match.path}/gym`}
+                component={WorkoutInput}
+              />
+            </div>
+          </Jumbotron>
+        </Wrapper>
+      </div>
+    );
+  }
 }
 
 export default Dashboard;
